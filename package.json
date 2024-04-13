@@ -1,0 +1,28 @@
+{
+  "name": "eslint-config-svag",
+  "version": "0.0.1",
+  "homepage": "https://github.com/svagcrew/eslint-config-svag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svagcrew/eslint-config-svag.git"
+  },
+  "bugs": {
+    "url": "https://github.com/svagcrew/eslint-config-svag/issues"
+  },
+  "author": {
+    "name": "Sergei Dmitriev",
+    "url": "https://sergei.svag.group"
+  },
+  "license": "MIT",
+  "files": [
+    "*.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-love": "^47.0.0",
+    "eslint-config-prettier": "^9.1.0"
+  }
+}
