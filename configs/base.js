@@ -8,5 +8,12 @@ module.exports = tseslint.config(
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  {
+    rules: {
+      // log forbidden, info, warn, error, debug, trace allowed
+      // 'no-console': ['error', { allow: ['warn', 'error', 'info', 'debug', 'trace'] }],
+      'no-console': 'error'
+    }
+  }
 );
 
