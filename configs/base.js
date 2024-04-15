@@ -1,5 +1,6 @@
 const eslint = require('@eslint/js');
 const tseslint = require('typescript-eslint');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = tseslint.config(
@@ -8,6 +9,7 @@ module.exports = tseslint.config(
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintPluginPrettierRecommended,
   {
     rules: {
       // log forbidden, info, warn, error, debug, trace allowed
