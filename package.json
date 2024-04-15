@@ -1,13 +1,13 @@
 {
-  "name": "svag-eslint",
+  "name": "svag-lint",
   "version": "0.0.12",
-  "homepage": "https://github.com/svagcrew/svag-eslint",
+  "homepage": "https://github.com/svagcrew/svag-lint",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/svagcrew/svag-eslint.git"
+    "url": "git+https://github.com/svagcrew/svag-lint.git"
   },
   "bugs": {
-    "url": "https://github.com/svagcrew/svag-eslint/issues"
+    "url": "https://github.com/svagcrew/svag-lint/issues"
   },
   "author": {
     "name": "Sergei Dmitriev",
