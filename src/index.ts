@@ -36,9 +36,8 @@ defineCliApp(async ({ cwd, command, flags }) => {
     const configContent = dedent`const getSvagEslint${_.capitalize(configName)}Configs = require('svag-lint/configs/${configName}')
     /** @type {import('eslint').Linter.FlatConfig[]} */
     module.exports = [...getSvagEslint${_.capitalize(configName)}Configs()]
-    
     `
-    await fs.writeFile(configPath, configContent)
+    await fs.writeFile(configPath, configContent + '\n')
     log.toMemory.green(`${configPath}: Eslint config file created`)
   }
 
