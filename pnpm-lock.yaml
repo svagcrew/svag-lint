@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   svag-cli-utils:
-    specifier: ^0.0.3
-    version: 0.0.3(@types/node@20.12.7)
+    specifier: ^0.0.4
+    version: 0.0.4(@types/node@20.12.7)
   typescript:
     specifier: ^5.0.0
     version: 5.4.5
@@ -53,8 +53,8 @@ devDependencies:
     specifier: ~0.0.4
     version: 0.0.4
   svag-ts:
-    specifier: ^0.0.15
-    version: 0.0.15
+    specifier: ^0.0.16
+    version: 0.0.16
 
 packages:
 
@@ -1245,8 +1245,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svag-cli-utils@0.0.3(@types/node@20.12.7):
-    resolution: {integrity: sha512-kSRgkgzLQsde65h7qQXPVWi/8qKJxDORYHzHnr+hi4gy5ZJUnKgC9E4SRExrBPaVmJzKbh32YxtrQ9C4J095UQ==}
+  /svag-cli-utils@0.0.4(@types/node@20.12.7):
+    resolution: {integrity: sha512-WNBpWg5tPkLXUWSHdN6d4ufShlerYyK5Rf+K72vE5RYO6HmdC57jqaeIrG6xDVMR0G36euTiCK+bmj8wDWxOjA==}
     dependencies:
       dedent: 1.5.3
       enquirer: 2.4.1
@@ -1272,8 +1272,8 @@ packages:
       prettier: 3.2.5
     dev: true
 
-  /svag-ts@0.0.15:
-    resolution: {integrity: sha512-OTb69Ai85QRmLp/GRKkoHK8bUTJV4G5R2uzE4djCHrPpl1f+of2a7UPEfP8eZzav4GFWSKL+zRbqz5XSn5Elmw==}
+  /svag-ts@0.0.16:
+    resolution: {integrity: sha512-IMPMoK79/U24OENtLOTYr1kZwSKXLWroRACZovyuVtwy8Da7hzzrwNgZhREFZTHB91+pff1uRU++Q6jNAyyovg==}
     dependencies:
       typescript: 5.4.5
     dev: true

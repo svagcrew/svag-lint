@@ -5,7 +5,7 @@ import { promises as fs } from 'fs'
 import _ from 'lodash'
 import path from 'path'
 import { getPackageJsonData } from 'svag-cli-utils'
-import { defineCliApp, getPackageJsonDir, log, spawn, validateOrThrow } from 'svag-cli-utils/src/index'
+import { defineCliApp, getPackageJsonDir, log, spawn, validateOrThrow } from 'svag-cli-utils'
 import z from 'zod'
 
 defineCliApp(async ({ cwd, command, flags }) => {
