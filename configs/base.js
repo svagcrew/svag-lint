@@ -20,6 +20,7 @@ module.exports = (props = {}) =>
     {
       rules: {
         'no-console': 'error',
+        '@typescript-eslint/no-explicit-any': 'off',
       },
     }
   )
