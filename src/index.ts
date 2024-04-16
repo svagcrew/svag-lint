@@ -4,8 +4,16 @@ import dedent from 'dedent'
 import { promises as fs } from 'fs'
 import _ from 'lodash'
 import path from 'path'
-import { getPackageJsonData } from 'svag-cli-utils'
-import { defineCliApp, getPackageJsonDir, log, spawn, validateOrThrow } from 'svag-cli-utils'
+import {
+  defineCliApp,
+  getPackageJsonData,
+  getPackageJsonDir,
+  isFileExists,
+  log,
+  setPackageJsonData,
+  spawn,
+  validateOrThrow,
+} from 'svag-cli-utils'
 import z from 'zod'
 
 defineCliApp(async ({ cwd, command, flags }) => {
@@ -13,18 +21,25 @@ defineCliApp(async ({ cwd, command, flags }) => {
 
   const createConfigFile = async () => {
     log.green('Creating eslint config file...')
+    const configPath = path.resolve(packageJsonDir, 'eslint.config.js')
+    const { fileExists: configExists } = await isFileExists({ filePath: configPath })
+    if (configExists) {
+      log.toMemory.green(`${configPath}: Eslint config file already exists`)
+      return
+    }
     const configName = validateOrThrow({
       zod: z.enum(['base', 'node']),
       text: 'Invalid config name',
       data: flags.config || flags.c || 'base',
     })
-    const configPath = path.resolve(packageJsonDir, 'eslint.config.js')
+
     const configContent = dedent`const getSvagEslint${_.capitalize(configName)}Configs = require('svag-lint/configs/${configName}')
     /** @type {import('eslint').Linter.FlatConfig[]} */
     module.exports = [...getSvagEslint${_.capitalize(configName)}Configs()]
+    
     `
     await fs.writeFile(configPath, configContent)
-    log.toMemory.green('Eslint config file created:', configPath)
+    log.toMemory.green(`${configPath}: Eslint config file created`)
   }
 
   const installDeps = async () => {
@@ -41,9 +56,10 @@ defineCliApp(async ({ cwd, command, flags }) => {
         packageJsonData.scripts = {}
       }
       packageJsonData.scripts.lint = 'svag-lint lint'
-      log.toMemory.green('Script "lint" added to package.json')
+      await setPackageJsonData({ cwd: packageJsonDir, packageJsonData })
+      log.toMemory.green(`Script "lint" added to package.json`)
     } else {
-      log.toMemory.green('Script "lint" already exists in package.json')
+      log.toMemory.green(`Script "lint" already exists in package.json`)
     }
   }
 
