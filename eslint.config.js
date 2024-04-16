@@ -4,9 +4,6 @@ const getSvagEslintNodeConfigs = require('./configs/node')
 module.exports = [
   ...getSvagEslintNodeConfigs(),
   {
-    ignores: ['!configs', '!configs/*'],
-  },
-  {
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
     },

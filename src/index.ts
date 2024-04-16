@@ -6,8 +6,7 @@ import _ from 'lodash'
 import path from 'path'
 import {
   defineCliApp,
-  getPackageJsonData,
-  getPackageJsonDir,
+  getPackageJson,
   isFileExists,
   log,
   setPackageJsonData,
@@ -17,7 +16,7 @@ import {
 import z from 'zod'
 
 defineCliApp(async ({ cwd, command, flags }) => {
-  const { packageJsonDir } = await getPackageJsonDir({ cwd })
+  const { packageJsonDir, packageJsonPath } = await getPackageJson({ cwd })
 
   const createConfigFile = async () => {
     log.green('Creating eslint config file...')
@@ -38,27 +37,27 @@ defineCliApp(async ({ cwd, command, flags }) => {
     module.exports = [...getSvagEslint${_.capitalize(configName)}Configs()]
     `
     await fs.writeFile(configPath, configContent + '\n')
-    log.toMemory.green(`${configPath}: Eslint config file created`)
+    log.toMemory.green(`${configPath}: eslint config file created`)
   }
 
   const installDeps = async () => {
     log.green('Installing dependencies...')
     await spawn({ cwd: packageJsonDir, command: 'pnpm i -D svag-lint@latest' })
-    log.toMemory.green('Dependencies installed')
+    log.toMemory.green(`${packageJsonPath}: dependencies installed`)
   }
 
   const addScriptToPackageJson = async () => {
     log.green('Adding "lint" script to package.json...')
-    const { packageJsonData } = await getPackageJsonData({ cwd: packageJsonDir })
+    const { packageJsonData, packageJsonPath } = await getPackageJson({ cwd: packageJsonDir })
     if (!packageJsonData.scripts?.lint) {
       if (!packageJsonData.scripts) {
         packageJsonData.scripts = {}
       }
       packageJsonData.scripts.lint = 'svag-lint lint'
       await setPackageJsonData({ cwd: packageJsonDir, packageJsonData })
-      log.toMemory.green(`Script "lint" added to package.json`)
+      log.toMemory.green(`${packageJsonPath}: script "lint" added`)
     } else {
-      log.toMemory.green(`Script "lint" already exists in package.json`)
+      log.toMemory.green(`${packageJsonPath}: script "lint" already exists`)
     }
   }
 
@@ -84,7 +83,7 @@ defineCliApp(async ({ cwd, command, flags }) => {
     case 'lint': {
       await spawn({
         cwd: packageJsonDir,
-        command: 'pnpm eslint --cache --cache-location ./node_modules/.cache/.eslintcache .',
+        command: 'pnpm eslint --color --cache --cache-location ./node_modules/.cache/.eslintcache .',
       })
       break
     }
