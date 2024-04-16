@@ -27,7 +27,7 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   svag-cli-utils:
-    specifier: ^0.0.8
+    specifier: ~0.0.8
     version: 0.0.8(@types/node@20.12.7)
   typescript:
     specifier: ^5.0.0
