@@ -18,7 +18,8 @@
     "access": "public"
   },
   "files": [
-    "configs/**/*"
+    "./configs/**/*",
+    "./dist/**/*"
   ],
   "bin": {
     "svag-lint": "./dist/index.js",
