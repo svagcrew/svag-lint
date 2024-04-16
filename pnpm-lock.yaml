@@ -32,8 +32,8 @@ dependencies:
 
 devDependencies:
   svag-prettier:
-    specifier: ^0.0.2
-    version: 0.0.2
+    specifier: ^0.0.3
+    version: 0.0.3
 
 packages:
 
@@ -985,8 +985,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svag-prettier@0.0.2:
-    resolution: {integrity: sha512-uv1kt6yVdSy27nj7Ax+UE6vRjgtsbs7lewLPLyn6w460+87047uUknfGPJf+uEe6KRFy0wawS/Mh3TqjFIG9aw==}
+  /svag-prettier@0.0.3:
+    resolution: {integrity: sha512-i/aepZoKxKTc9rmEAOjWfmvGJ8Puf7BuGDIxFZqLffm6jXGjF1uj66YH0FDvXVwY7DG4zRRLNAYmNKDf8VSXtw==}
     dependencies:
       prettier: 3.2.5
     dev: true
