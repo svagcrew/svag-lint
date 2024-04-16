@@ -30,6 +30,11 @@ dependencies:
     specifier: ^7.6.0
     version: 7.6.0(eslint@9.0.0)(typescript@5.4.5)
 
+devDependencies:
+  svag-prettier:
+    specifier: ^0.0.2
+    version: 0.0.2
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
@@ -886,7 +891,6 @@ packages:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
 
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -980,6 +984,12 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: false
+
+  /svag-prettier@0.0.2:
+    resolution: {integrity: sha512-uv1kt6yVdSy27nj7Ax+UE6vRjgtsbs7lewLPLyn6w460+87047uUknfGPJf+uEe6KRFy0wawS/Mh3TqjFIG9aw==}
+    dependencies:
+      prettier: 3.2.5
+    dev: true
 
   /synckit@0.8.8:
     resolution: {integrity: sha512-HwOKAP7Wc5aRGYdKH+dw0PRRpbO841v2DENBtjnR5HFWoiNByAl7vrx3p0G/rCyYXQsrxqtX48TImFtPcIHSpQ==}

@@ -2,19 +2,23 @@ const eslint = require('@eslint/js')
 const tseslint = require('typescript-eslint')
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
 
-/** @type {() => import('eslint').Linter.FlatConfig[]} */
-module.exports = () =>
+/** @type {(props?: {ignores?: string[]}) => import('eslint').Linter.FlatConfig[]}*/
+module.exports = (props = {}) =>
   tseslint.config(
     {
-      ignores: ['**', '*', '!src/**'],
+      ignores: props.ignores !== undefined ? props.ignores : ['dist', 'volumes', 'node_modules'],
     },
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     eslintPluginPrettierRecommended,
     {
+      files: ['*.@(js|ts)'],
       rules: {
-        // log forbidden, info, warn, error, debug, trace allowed
-        // 'no-console': ['error', { allow: ['warn', 'error', 'info', 'debug', 'trace'] }],
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      rules: {
         'no-console': 'error',
       },
     }
