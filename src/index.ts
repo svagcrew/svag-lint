@@ -29,7 +29,7 @@ defineCliApp(async ({ cwd, command, flags }) => {
 
   const installDeps = async () => {
     log.green('Installing dependencies...')
-    await spawn({ cwd: packageJsonDir, command: 'pnpm i svag-lint@latest' })
+    await spawn({ cwd: packageJsonDir, command: 'pnpm i svag-lint@latest -D' })
     log.toMemory.green('Dependencies installed')
   }
 
