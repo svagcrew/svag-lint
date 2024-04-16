@@ -34,6 +34,12 @@
     "typescript-eslint": "^7.6.0"
   },
   "devDependencies": {
-    "svag-prettier": "^0.0.3"
+    "svag-prettier": "~0.0.3"
+  },
+  "libalibe": {
+    "depsVersionAccuracyNotMatter": [
+      "svag-prettier",
+      "svag-ts"
+    ]
   }
 }
