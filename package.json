@@ -22,8 +22,7 @@
     "./dist/**/*"
   ],
   "bin": {
-    "svag-lint": "./dist/index.js",
-    "svag-lint!": "./src/index.ts"
+    "svag-lint": "./dist/index.js"
   },
   "scripts": {
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache .",

@@ -1,5 +1,3 @@
-#!/usr/bin/env ts-node
-
 import dedent from 'dedent'
 import { promises as fs } from 'fs'
 import _ from 'lodash'
