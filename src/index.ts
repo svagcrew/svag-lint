@@ -13,7 +13,7 @@ import {
 } from 'svag-cli-utils'
 import z from 'zod'
 
-defineCliApp(async ({ cwd, command, flags }) => {
+defineCliApp(async ({ cwd, command, flags, argr }) => {
   const { packageJsonDir, packageJsonPath } = await getPackageJson({ cwd })
 
   const createConfigFile = async () => {
@@ -81,11 +81,11 @@ defineCliApp(async ({ cwd, command, flags }) => {
     case 'lint': {
       await spawn({
         cwd: packageJsonDir,
-        command: 'pnpm eslint --color --cache --cache-location ./node_modules/.cache/.eslintcache .',
+        command: `pnpm eslint --color --cache --cache-location ./node_modules/.cache/.eslintcache . ${argr.join(' ')}`,
       })
       break
     }
-    case 'help': {
+    case 'h': {
       log.black(`Commands:
 install-deps
 create-config-file
