@@ -50,11 +50,11 @@ devDependencies:
     specifier: ^5.0.5
     version: 5.0.5
   svag-prettier:
-    specifier: ^0.0.6
-    version: 0.0.6
+    specifier: ^0.1.1
+    version: 0.1.1
   svag-ts:
-    specifier: ^0.0.17
-    version: 0.0.17
+    specifier: ^0.1.1
+    version: 0.1.1
 
 packages:
 
@@ -1367,14 +1367,14 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /svag-prettier@0.0.6:
-    resolution: {integrity: sha512-AGKD37nHRHGbvJDLyUxKFhQomC3OCGYe/+fb6xnKKbBd6Tqk/FJW8dm1/hSZ0KCBmcBid4Qspu4qMwSSAkivaA==}
+  /svag-prettier@0.1.1:
+    resolution: {integrity: sha512-dgZ3oZhnD37Awv7geiGFqpI2jQXMT83U21wsBMYhmoV7xuYS5puLu37vnkYdn2JmZUBzXkyM07FhcG4bLJVjhQ==}
     dependencies:
       prettier: 3.2.5
     dev: true
 
-  /svag-ts@0.0.17:
-    resolution: {integrity: sha512-ra85VAfhCTMfuv8WZadhs6YCgZAGB9tufHU/Gm2U/xjiAD1sa+phJLvz7G7rbt0iCikUt+9fi/lluuEgCZeeCw==}
+  /svag-ts@0.1.1:
+    resolution: {integrity: sha512-s57f+Vs5v5ILjiEGrMLhkvQtuy/LtPwJsmf/5xehxK8QJr8IWy998RbdnHpwRRHFxMvH6ulu6+3FBVYAHX2mJQ==}
     dependencies:
       typescript: 5.4.5
     dev: true
