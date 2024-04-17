@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   svag-cli-utils:
-    specifier: ^0.1.5
-    version: 0.1.5(@types/node@20.12.7)
+    specifier: ^0.1.6
+    version: 0.1.6(@types/node@20.12.7)
   typescript:
     specifier: ^5.0.0
     version: 5.4.5
@@ -50,11 +50,11 @@ devDependencies:
     specifier: ^5.0.5
     version: 5.0.5
   svag-prettier:
-    specifier: ^0.1.4
-    version: 0.1.4
+    specifier: ^0.1.5
+    version: 0.1.5
   svag-ts:
-    specifier: ^0.1.7
-    version: 0.1.7
+    specifier: ^0.1.8
+    version: 0.1.8
 
 packages:
 
@@ -1342,8 +1342,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svag-cli-utils@0.1.5(@types/node@20.12.7):
-    resolution: {integrity: sha512-tVUSIhBMk7r8AoaUwT794E/z8Q7i9c7dr4bk3hAu2XCHmM5E1MzjbkPevy6ff5Uu1/qCIXi0KyV2Qf7uC+MCaQ==}
+  /svag-cli-utils@0.1.6(@types/node@20.12.7):
+    resolution: {integrity: sha512-BSuM+BbF2+yLA04FQgINIOXa6eP37VJJdVuEti/wii+Vt5mK+qrbs2W1JxYKybBZVrCQdF0xvdeNDjWBhoX0Dg==}
     dependencies:
       dedent: 1.5.3
       enquirer: 2.4.1
@@ -1364,14 +1364,14 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /svag-prettier@0.1.4:
-    resolution: {integrity: sha512-MmdnSsJ1iQuL2shv1Z054qIIB0lfKYnCsAuO7BriPwP/jITLHVILe58vB0w7HkcgIPBJkdasniWwKIYKn9t8ug==}
+  /svag-prettier@0.1.5:
+    resolution: {integrity: sha512-9mIIHpCxgltq3eI9suuLC1IZ3DEz+8wzEnsYQX5ugcC9fMdL4yHRpjey3A+FJtK4vKfu+1GmJBl2H+vU6OusVQ==}
     dependencies:
       prettier: 3.2.5
     dev: true
 
-  /svag-ts@0.1.7:
-    resolution: {integrity: sha512-mu/SUM3lwW/7cZX++rNXhXXjWyjgqXNoy+N2FpJUdHRkkhnQfdor5Tbjft/L94s9FkLX7wLKQa2j2I/TYuyTJA==}
+  /svag-ts@0.1.8:
+    resolution: {integrity: sha512-qN3m5Y48qNNtVpjbIbeeMx3lQF2ZdYaabLrOC4lls34pmA5yWPNeW+vHScpOtHYcO3fS3hrLZhQBo8vM7UffRQ==}
     dependencies:
       typescript: 5.4.5
       typescript-transform-paths: 3.4.7(typescript@5.4.5)
