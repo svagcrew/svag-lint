@@ -21,7 +21,7 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
     const configPath = path.resolve(packageJsonDir, 'eslint.config.js')
     const { fileExists: configExists } = await isFileExists({ filePath: configPath })
     if (configExists) {
-      log.toMemory.green(`${configPath}: Eslint config file already exists`)
+      log.toMemory.green(`${configPath}: eslint config file already exists`)
       return
     }
     const configName = validateOrThrow({
