@@ -48,7 +48,7 @@
     "@types/lodash": "^4.17.0",
     "@types/node": "^20.12.7",
     "rimraf": "^5.0.5",
-    "svag-prettier": "^0.1.5",
-    "svag-ts": "^0.1.8"
+    "svag-prettier": "^0.1.6",
+    "svag-ts": "^0.1.9"
   }
 }
