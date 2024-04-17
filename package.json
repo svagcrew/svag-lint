@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "lodash": "^4.17.21",
-    "svag-cli-utils": "^0.1.4",
+    "svag-cli-utils": "^0.1.5",
     "typescript": "^5.0.0",
     "typescript-eslint": "^7.6.0",
     "zod": "^3.22.4"
@@ -49,7 +49,7 @@
     "@types/node": "^20.12.7",
     "rimraf": "^5.0.5",
     "svag-prettier": "^0.1.4",
-    "svag-ts": "^0.1.6"
+    "svag-ts": "^0.1.7"
   },
   "libalibe": {
     "ignoreDependeciesVersionAccuracy": [
