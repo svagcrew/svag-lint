@@ -40,7 +40,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "lodash": "^4.17.21",
-    "svag-cli-utils": "^0.1.8",
+    "svag-cli-utils": "^0.1.9",
     "typescript": "^5.0.0",
     "typescript-eslint": "^7.6.0",
     "zod": "^3.22.4"
