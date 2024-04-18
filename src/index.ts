@@ -121,6 +121,7 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
       await spawn({
         cwd: packageJsonDir,
         command: `pnpm eslint --color --cache --cache-location ./node_modules/.cache/.eslintcache . ${argr.join(' ')}`,
+        exitOnFailure: true,
       })
       break
     }
