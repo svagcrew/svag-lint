@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   svag-cli-utils:
-    specifier: ^0.1.12
-    version: 0.1.12(@types/node@20.12.7)
+    specifier: ^0.1.13
+    version: 0.1.13(@types/node@20.12.7)
   typescript:
     specifier: ^5.0.0
     version: 5.4.5
@@ -50,11 +50,11 @@ devDependencies:
     specifier: ^5.0.5
     version: 5.0.5
   svag-prettier:
-    specifier: ^0.1.8
-    version: 0.1.8(@types/node@20.12.7)
+    specifier: ^0.1.9
+    version: 0.1.9(@types/node@20.12.7)
   svag-ts:
-    specifier: ^0.1.12
-    version: 0.1.12
+    specifier: ^0.1.13
+    version: 0.1.13
 
 packages:
 
@@ -1283,8 +1283,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svag-cli-utils@0.1.12(@types/node@20.12.7):
-    resolution: {integrity: sha512-PfMBGonOjHWytfdVgP32e8kcY07Ajg+Hm7m06H+Aeuj37HCWOTQmqTsTPRL4+DGIrZT6VLEbvj02nfg+o9wAYQ==}
+  /svag-cli-utils@0.1.13(@types/node@20.12.7):
+    resolution: {integrity: sha512-Uu1WBUmA7lYcrdzg3Tyex/djVZ75oqakFugD05vSBlzKf6Qjd2/IQ2M0BHcNaE3n23nkzTZLr92sOAutDXPBbQ==}
     dependencies:
       dedent: 1.5.3
       enquirer: 2.4.1
@@ -1304,14 +1304,14 @@ packages:
       - '@types/node'
       - babel-plugin-macros
 
-  /svag-prettier@0.1.8(@types/node@20.12.7):
-    resolution: {integrity: sha512-oY7E7Shvey+HCFoc71AW0cZNDhMmjmMHKqz5Qems6FahJkGxP+LrI/qj4RhJ2GXEynFX1BUov22RIRpRJevrsQ==}
+  /svag-prettier@0.1.9(@types/node@20.12.7):
+    resolution: {integrity: sha512-WRSsaSiENWIzk1sZw0yQy3zB1C+NfU/6pGncUISfISvfuRsxKbCtq3IeA/Q64GThJzvWizXJE2rMdM/bQz5F4g==}
     hasBin: true
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
-      svag-cli-utils: 0.1.12(@types/node@20.12.7)
+      svag-cli-utils: 0.1.13(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
@@ -1321,8 +1321,8 @@ packages:
       - babel-plugin-macros
     dev: true
 
-  /svag-ts@0.1.12:
-    resolution: {integrity: sha512-pBSOA1hwrAp+4yl2aDlZkCHyQLt5Lj344kY34dg7sW98A1pSdxZeP91udPhxtrJI505TqXubN3SlN6v/0/9XEw==}
+  /svag-ts@0.1.13:
+    resolution: {integrity: sha512-eQh02oN+qqCKQnHJ+Z+MNtXzW7b1N7IoiUQRTQ1xSBO+BTMYgVFtssZG7FdEoLQY8gbyN5xFLdjEViZS9D0B2w==}
     dependencies:
       typescript: 5.4.5
       typescript-transform-paths: 3.4.7(typescript@5.4.5)
