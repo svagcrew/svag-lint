@@ -21,7 +21,7 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
     const configPath = path.resolve(packageJsonDir, 'eslint.config.js')
     const { fileExists: configExists } = await isFileExists({ filePath: configPath })
     if (configExists) {
-      log.toMemory.green(`${configPath}: eslint config file already exists`)
+      log.toMemory.black(`${configPath}: eslint config file already exists`)
       return
     }
     const configName = validateOrThrow({
@@ -35,13 +35,39 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
     module.exports = [...getSvagEslint${_.capitalize(configName)}Configs()]
     `
     await fs.writeFile(configPath, configContent + '\n')
-    log.toMemory.green(`${configPath}: eslint config file created`)
+    log.toMemory.black(`${configPath}: eslint config file created`)
+  }
+
+  const setVscodeSettings = async () => {
+    log.green('Setting vscode settings...')
+    const vscodeSettingsPath = path.resolve(packageJsonDir, '.vscode/settings.json')
+    const { fileExists: vscodeSettingsExists } = await isFileExists({ filePath: vscodeSettingsPath })
+    const vscodeSettingsData = vscodeSettingsExists ? JSON.parse(await fs.readFile(vscodeSettingsPath, 'utf-8')) : {}
+    let somethingDone = false
+    if (!vscodeSettingsExists) {
+      await fs.mkdir(path.dirname(vscodeSettingsPath), { recursive: true })
+      await fs.writeFile(vscodeSettingsPath, '{}\n')
+    }
+    if (vscodeSettingsData['eslint.workingDirectories'] === undefined) {
+      vscodeSettingsData['eslint.workingDirectories'] = [{ mode: 'auto' }]
+      somethingDone = true
+    }
+    if (vscodeSettingsData['eslint.experimental.useFlatConfig'] === undefined) {
+      vscodeSettingsData['eslint.experimental.useFlatConfig'] = true
+      somethingDone = true
+    }
+    if (somethingDone) {
+      await fs.writeFile(vscodeSettingsPath, JSON.stringify(vscodeSettingsData, null, 2) + '\n')
+      log.toMemory.black(`${vscodeSettingsPath}: vscode settings updated`)
+    } else {
+      log.toMemory.black(`${vscodeSettingsPath}: vscode settings already up to date`)
+    }
   }
 
   const installDeps = async () => {
     log.green('Installing dependencies...')
-    await spawn({ cwd: packageJsonDir, command: 'pnpm i -D svag-lint@latest' })
-    log.toMemory.green(`${packageJsonPath}: dependencies installed`)
+    await spawn({ cwd: packageJsonDir, command: 'pnpm i -D svag-lint@latest eslint' })
+    log.toMemory.black(`${packageJsonPath}: dependencies installed`)
   }
 
   const addScriptToPackageJson = async () => {
@@ -53,9 +79,9 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
       }
       packageJsonData.scripts.lint = 'svag-lint lint'
       await setPackageJsonData({ cwd: packageJsonDir, packageJsonData })
-      log.toMemory.green(`${packageJsonPath}: script "lint" added`)
+      log.toMemory.black(`${packageJsonPath}: script "lint" added`)
     } else {
-      log.toMemory.green(`${packageJsonPath}: script "lint" already exists`)
+      log.toMemory.black(`${packageJsonPath}: script "lint" already exists`)
     }
   }
 
@@ -72,10 +98,15 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
       await addScriptToPackageJson()
       break
     }
+    case 'set-vscode-settings': {
+      await setVscodeSettings()
+      break
+    }
     case 'init': {
       await installDeps()
       await createConfigFile()
       await addScriptToPackageJson()
+      await setVscodeSettings()
       break
     }
     case 'lint': {
@@ -90,6 +121,7 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
 install-deps
 create-config-file
 add-script-to-package-json
+set-vscode-settings
 init — all above together
 lint — eslint ...`)
       break
