@@ -41,7 +41,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "lodash": "^4.17.21",
-    "svag-cli-utils": "^0.1.17",
+    "svag-cli-utils": "^0.1.18",
     "typescript": "^5.0.0",
     "typescript-eslint": "^7.6.0",
     "zod": "^3.22.4"
@@ -50,8 +50,8 @@
     "@types/lodash": "^4.17.0",
     "@types/node": "^20.12.7",
     "rimraf": "^5.0.5",
-    "svag-prettier": "^0.1.13",
-    "svag-ts": "^0.1.17",
+    "svag-prettier": "^0.1.14",
+    "svag-ts": "^0.1.18",
     "ts-patch": "^3.1.2"
   }
 }
