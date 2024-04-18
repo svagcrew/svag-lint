@@ -7,8 +7,9 @@ import {
   getPackageJson,
   isFileExists,
   log,
-  setPackageJsonData,
+  setPackageJsonDataItem,
   spawn,
+  setJsonDataItem,
   validateOrThrow,
 } from 'svag-cli-utils'
 import z from 'zod'
@@ -44,20 +45,31 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
     const { fileExists: vscodeSettingsExists } = await isFileExists({ filePath: vscodeSettingsPath })
     const vscodeSettingsData = vscodeSettingsExists ? JSON.parse(await fs.readFile(vscodeSettingsPath, 'utf-8')) : {}
     let somethingDone = false
-    if (!vscodeSettingsExists) {
-      await fs.mkdir(path.dirname(vscodeSettingsPath), { recursive: true })
-      await fs.writeFile(vscodeSettingsPath, '{}\n')
-    }
     if (vscodeSettingsData['eslint.workingDirectories'] === undefined) {
-      vscodeSettingsData['eslint.workingDirectories'] = [{ mode: 'auto' }]
+      await setJsonDataItem({
+        filePath: vscodeSettingsPath,
+        key: 'eslint\\.workingDirectories',
+        value: [{ mode: 'auto' }],
+      })
       somethingDone = true
     }
     if (vscodeSettingsData['eslint.experimental.useFlatConfig'] === undefined) {
-      vscodeSettingsData['eslint.experimental.useFlatConfig'] = true
+      await setJsonDataItem({
+        filePath: vscodeSettingsPath,
+        key: 'eslint\\.experimental\\.useFlatConfig',
+        value: true,
+      })
+      somethingDone = true
+    }
+    if (vscodeSettingsData['typescript.preferences.importModuleSpecifier'] === undefined) {
+      await setJsonDataItem({
+        filePath: vscodeSettingsPath,
+        key: 'typescript\\.preferences\\.importModuleSpecifier',
+        value: 'non-relative',
+      })
       somethingDone = true
     }
     if (somethingDone) {
-      await fs.writeFile(vscodeSettingsPath, JSON.stringify(vscodeSettingsData, null, 2) + '\n')
       log.toMemory.black(`${vscodeSettingsPath}: vscode settings updated`)
     } else {
       log.toMemory.black(`${vscodeSettingsPath}: vscode settings already up to date`)
@@ -74,11 +86,7 @@ defineCliApp(async ({ cwd, command, flags, argr }) => {
     log.green('Adding "lint" script to package.json...')
     const { packageJsonData, packageJsonPath } = await getPackageJson({ cwd: packageJsonDir })
     if (!packageJsonData.scripts?.lint) {
-      if (!packageJsonData.scripts) {
-        packageJsonData.scripts = {}
-      }
-      packageJsonData.scripts.lint = 'svag-lint lint'
-      await setPackageJsonData({ cwd: packageJsonDir, packageJsonData })
+      await setPackageJsonDataItem({ cwd: packageJsonDir, key: 'scripts.lint', value: 'svag-lint lint' })
       log.toMemory.black(`${packageJsonPath}: script "lint" added`)
     } else {
       log.toMemory.black(`${packageJsonPath}: script "lint" already exists`)
