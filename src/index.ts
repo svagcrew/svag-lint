@@ -14,7 +14,8 @@ import {
 } from 'svag-cli-utils'
 import z from 'zod'
 
-defineCliApp(async ({ cwd, command, flags, argr }) => {
+defineCliApp(async ({ cwd, command, args, flags, argr }) => {
+  cwd = path.resolve(cwd, args[0] || '.')
   const { packageJsonDir, packageJsonPath } = await getPackageJson({ cwd })
 
   const createConfigFile = async () => {
