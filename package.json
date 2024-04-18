@@ -50,6 +50,7 @@
     "@types/node": "^20.12.7",
     "rimraf": "^5.0.5",
     "svag-prettier": "^0.1.10",
-    "svag-ts": "^0.1.14"
+    "svag-ts": "^0.1.14",
+    "ts-patch": "^3.1.2"
   }
 }
