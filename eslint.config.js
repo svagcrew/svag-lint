@@ -1,7 +1,6 @@
-const getSvagEslintNodeConfigs = require('./configs/node')
-
+import getSvagEslintNodeConfigs from './configs/node.js'
 /** @type {import('eslint').Linter.FlatConfig[]} */
-module.exports = [
+export default [
   ...getSvagEslintNodeConfigs(),
   {
     rules: {

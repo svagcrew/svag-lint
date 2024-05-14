@@ -1,9 +1,9 @@
-const eslint = require('@eslint/js')
-const tseslint = require('typescript-eslint')
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 /** @type {(props?: {ignores?: string[]}) => import('eslint').Linter.FlatConfig[]}*/
-module.exports = (props = {}) =>
+export default (props = {}) =>
   tseslint.config(
     {
       ignores: props.ignores !== undefined ? props.ignores : ['dist', 'volumes', 'node_modules'],
@@ -12,7 +12,7 @@ module.exports = (props = {}) =>
     ...tseslint.configs.recommended,
     eslintPluginPrettierRecommended,
     {
-      files: ['*.@(js|ts)'],
+      files: ['*.@(js|ts|js|ts)'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
       },

@@ -1,9 +1,9 @@
-const getSvagEslintBaseConfigs = require('./base')
-const nodePlugin = require('eslint-plugin-node')
-const globals = require('globals')
+import getSvagEslintBaseConfigs from './base.js'
+import nodePlugin from 'eslint-plugin-node'
+import globals from 'globals'
 
 /** @type {(props?: {ignores?: string[]}) => import('eslint').Linter.FlatConfig[]}*/
-module.exports = (props = {}) => [
+export default (props = {}) => [
   ...getSvagEslintBaseConfigs(props),
   {
     plugins: {

@@ -15,10 +15,9 @@ import {
 import z from 'zod'
 
 defineCliApp(async ({ cwd, command, args, flags, argr }) => {
-  cwd = path.resolve(cwd, args[0] || '.')
-  const { packageJsonDir, packageJsonPath } = await getPackageJson({ cwd })
-
   const createConfigFile = async () => {
+    cwd = path.resolve(cwd, args[0] || '.')
+    const { packageJsonDir } = await getPackageJson({ cwd })
     log.green('Creating eslint config file...')
     const configPath = path.resolve(packageJsonDir, 'eslint.config.js')
     const { fileExists: configExists } = await isFileExists({ filePath: configPath })
@@ -27,20 +26,22 @@ defineCliApp(async ({ cwd, command, args, flags, argr }) => {
       return
     }
     const configName = validateOrThrow({
-      zod: z.enum(['base', 'node']),
+      zod: z.enum(['base', 'node', 'react']),
       text: 'Invalid config name',
-      data: flags.config || flags.c || 'base',
+      data: flags.config || flags.c || 'node',
     })
 
-    const configContent = dedent`const getSvagEslint${_.capitalize(configName)}Configs = require('svag-lint/configs/${configName}')
+    const configContent = dedent`import getSvagEslint${_.capitalize(configName)}Configs from 'svag-lint/configs/${configName}'
     /** @type {import('eslint').Linter.FlatConfig[]} */
-    module.exports = [...getSvagEslint${_.capitalize(configName)}Configs()]
+    export default [...getSvagEslint${_.capitalize(configName)}Configs()]
     `
     await fs.writeFile(configPath, configContent + '\n')
     log.toMemory.black(`${configPath}: eslint config file created`)
   }
 
   const setVscodeSettings = async () => {
+    cwd = path.resolve(cwd, args[0] || '.')
+    const { packageJsonDir } = await getPackageJson({ cwd })
     log.green('Setting vscode settings...')
     const vscodeSettingsPath = path.resolve(packageJsonDir, '.vscode/settings.json')
     const { fileExists: vscodeSettingsExists } = await isFileExists({ filePath: vscodeSettingsPath })
@@ -78,14 +79,17 @@ defineCliApp(async ({ cwd, command, args, flags, argr }) => {
   }
 
   const installDeps = async () => {
+    cwd = path.resolve(cwd, args[0] || '.')
+    const { packageJsonDir, packageJsonPath } = await getPackageJson({ cwd })
     log.green('Installing dependencies...')
     await spawn({ cwd: packageJsonDir, command: 'pnpm i -D svag-lint@latest eslint' })
     log.toMemory.black(`${packageJsonPath}: dependencies installed`)
   }
 
   const addScriptToPackageJson = async () => {
+    cwd = path.resolve(cwd, args[0] || '.')
+    const { packageJsonDir, packageJsonData, packageJsonPath } = await getPackageJson({ cwd })
     log.green('Adding "lint" script to package.json...')
-    const { packageJsonData, packageJsonPath } = await getPackageJson({ cwd: packageJsonDir })
     if (!packageJsonData.scripts?.lint) {
       await setPackageJsonDataItem({ cwd: packageJsonDir, key: 'scripts.lint', value: 'svag-lint lint' })
       log.toMemory.black(`${packageJsonPath}: script "lint" added`)
@@ -119,6 +123,7 @@ defineCliApp(async ({ cwd, command, args, flags, argr }) => {
       break
     }
     case 'lint': {
+      const { packageJsonDir } = await getPackageJson({ cwd })
       await spawn({
         cwd: packageJsonDir,
         command: `pnpm eslint --color --cache --cache-location ./node_modules/.cache/.eslintcache . ${argr.join(' ')}`,
@@ -137,6 +142,7 @@ lint — eslint ...`)
       break
     }
     case 'ping': {
+      const { packageJsonDir } = await getPackageJson({ cwd })
       await spawn({ cwd: packageJsonDir, command: 'echo pong' })
       break
     }
