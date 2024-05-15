@@ -31,7 +31,7 @@ defineCliApp(async ({ cwd, command, args, flags, argr }) => {
       data: flags.config || flags.c || 'node',
     })
 
-    const configContent = dedent`import getSvagEslint${_.capitalize(configName)}Configs from 'svag-lint/configs/${configName}'
+    const configContent = dedent`import getSvagEslint${_.capitalize(configName)}Configs from 'svag-lint/configs/${configName}.js'
     /** @type {import('eslint').Linter.FlatConfig[]} */
     export default [...getSvagEslint${_.capitalize(configName)}Configs()]
     `
