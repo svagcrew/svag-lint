@@ -7,9 +7,9 @@ import {
   getPackageJson,
   isFileExists,
   log,
+  setJsonDataItem,
   setPackageJsonDataItem,
   spawn,
-  setJsonDataItem,
   validateOrThrow,
 } from 'svag-cli-utils'
 import z from 'zod'
@@ -26,9 +26,9 @@ defineCliApp(async ({ cwd, command, args, flags, argr }) => {
       return
     }
     const configName = validateOrThrow({
-      zod: z.enum(['base', 'node', 'react']),
+      zod: z.enum(['base']),
       text: 'Invalid config name',
-      data: flags.config || flags.c || 'node',
+      data: flags.config || flags.c || 'base',
     })
 
     const configContent = dedent`import getSvagEslint${_.capitalize(configName)}Configs from 'svag-lint/configs/${configName}.js'
