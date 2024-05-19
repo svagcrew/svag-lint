@@ -15,6 +15,7 @@ import eslintConfigCanonicalTs3 from 'eslint-config-canonical/configurations/typ
 import eslintConfigCanonicalZod from 'eslint-config-canonical/configurations/zod.js'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginJest from 'eslint-plugin-jest'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 // TODO: add react-refresh/only-export-components
@@ -37,7 +38,13 @@ const omit = (object, keys) => {
   return result
 }
 
-/** @type {(props?: {ignores?: string[]; jest?: boolean}) => import('eslint').Linter.FlatConfig[]} */
+/**
+ * @param {object} props
+ * @param {string[]} [props.ignores]
+ * @param {boolean} [props.jest]
+ * @param {boolean} [props.console]
+ * @returns {import('eslint').Linter.FlatConfig[]}
+ */
 export default (props = {}) => [
   {
     ignores: props.ignores !== undefined ? props.ignores : ['dist', 'volumes', 'node_modules'],
@@ -78,6 +85,12 @@ export default (props = {}) => [
   }),
   eslintConfigPrettier,
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
     rules: {
       'no-negated-condition': 'off',
       'canonical/sort-keys': 'off',
@@ -136,6 +149,7 @@ export default (props = {}) => [
       '@typescript-eslint/no-unused-expressions': 'off',
       'unicorn/better-regex': 'off',
       'canonical/export-specifier-newline': 'off',
+      ...(props.console ? { 'no-console': ['error', { allow: ['warn', 'error', 'info', 'debug', 'trace'] }] } : {}),
     },
   },
 ]
