@@ -33,8 +33,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   svag-cli-utils:
-    specifier: ^0.1.60
-    version: 0.1.60(@types/node@20.12.7)
+    specifier: ^0.1.61
+    version: 0.1.61(@types/node@20.12.7)
   typescript:
     specifier: ^5.0.0
     version: 5.4.5
@@ -65,17 +65,14 @@ devDependencies:
     specifier: ^5.0.5
     version: 5.0.5
   svag-husky:
-    specifier: ^0.1.42
-    version: 0.1.42(@types/node@20.12.7)
+    specifier: ^0.1.43
+    version: 0.1.43(@types/node@20.12.7)
   svag-prettier:
-    specifier: ^0.1.56
-    version: 0.1.56(@types/node@20.12.7)
+    specifier: ^0.1.57
+    version: 0.1.57(@types/node@20.12.7)
   svag-ts:
-    specifier: ^0.1.61
-    version: 0.1.61(@types/node@20.12.7)
-  tsc-alias:
-    specifier: ^1.8.10
-    version: 1.8.10
+    specifier: ^0.1.62
+    version: 0.1.62(@types/node@20.12.7)
 
 packages:
 
@@ -106,7 +103,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/highlight': 7.24.5
-      picocolors: 1.0.0
+      picocolors: 1.0.1
     dev: false
 
   /@babel/compat-data@7.24.4:
@@ -4271,10 +4268,6 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  /picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-    dev: false
-
   /picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
@@ -4844,8 +4837,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svag-cli-utils@0.1.60(@types/node@20.12.7):
-    resolution: {integrity: sha512-3sHB6kvHDrwPZNIFhQLaoQ4AhJNo0Mws60pEt1oAY1hf6MWyVQWfGvSTpu6HB/TSLyUUKEFw8HqsXqFIiz3m+Q==}
+  /svag-cli-utils@0.1.61(@types/node@20.12.7):
+    resolution: {integrity: sha512-kK2EADwlF94Vih1hmyisFivTxmrknvKQbMKdb1ku4x3icFR6HBZS52f63+rmfdX7MP9L3sfL8zUOVkmKYyteVg==}
     dependencies:
       dedent: 1.5.3
       edit-json-file: 1.8.0
@@ -4867,14 +4860,14 @@ packages:
       - '@types/node'
       - babel-plugin-macros
 
-  /svag-husky@0.1.42(@types/node@20.12.7):
-    resolution: {integrity: sha512-zKsD5gFjiOc805QT/qpzCKvn2DkYVCUFqkV3/LZfnZCDk+lZX6DxvKpP7xBfZsuJWMMXzHhHx2GASXoqng+4DQ==}
+  /svag-husky@0.1.43(@types/node@20.12.7):
+    resolution: {integrity: sha512-Sh+MTEi1G09yXWrXAh+Of8zWd+3Z/jtUDtq40pidkVb2HFIqAiVv02aOslTsKiOafOL9r9hNOMFsU09Aaj5+7g==}
     hasBin: true
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
-      svag-cli-utils: 0.1.60(@types/node@20.12.7)
+      svag-cli-utils: 0.1.61(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
@@ -4884,14 +4877,14 @@ packages:
       - babel-plugin-macros
     dev: true
 
-  /svag-prettier@0.1.56(@types/node@20.12.7):
-    resolution: {integrity: sha512-21rQBBBp8UNjM5p57SFTJKcKXtWr+dfs9kqi4K7JdBYn0/H5CLuVcb5rYm9fgSyKubmwAzvLlE3J3WcYFCYpMA==}
+  /svag-prettier@0.1.57(@types/node@20.12.7):
+    resolution: {integrity: sha512-oEeUKqtIsRLG1akpqzRYCVdVHAI8c17dAoxoyH88HNXzPLga34jeg6hSG5nyxMt3YKnOzMDeafwSNqVL+nkdsw==}
     hasBin: true
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
-      svag-cli-utils: 0.1.60(@types/node@20.12.7)
+      svag-cli-utils: 0.1.61(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
@@ -4901,15 +4894,15 @@ packages:
       - babel-plugin-macros
     dev: true
 
-  /svag-ts@0.1.61(@types/node@20.12.7):
-    resolution: {integrity: sha512-mEy4XfzQLbOEt4KNtRgkfeuPY8RfSA861q1beZMnI4yCVMmtg/ktsWZDl671UVc+y1Fp4axyZA9osIWnNMsXRg==}
+  /svag-ts@0.1.62(@types/node@20.12.7):
+    resolution: {integrity: sha512-CJQpfMhwFe89u/obyUMkyeXIF+9tMLYG16ZI7YIlZmZR0pt16WL9v+34iNX6PaEJZ2Dxu8d4Pxe/kl+bqENxlA==}
     hasBin: true
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
       rimraf: 5.0.5
-      svag-cli-utils: 0.1.60(@types/node@20.12.7)
+      svag-cli-utils: 0.1.61(@types/node@20.12.7)
       tsc-alias: 1.8.10
       typescript: 5.4.5
       zod: 3.22.4
