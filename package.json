@@ -1,6 +1,6 @@
 {
   "name": "svag-lint",
-  "version": "0.1.72",
+  "version": "0.1.73",
   "homepage": "https://github.com/svagcrew/svag-lint",
   "repository": {
     "type": "git",
@@ -17,24 +17,23 @@
   "publishConfig": {
     "access": "public"
   },
-  "type": "module",
+  "bin": {
+    "svag-lint": "./bin/index.js"
+  },
   "files": [
     "./src/**/*",
     "./dist/**/*",
     "./bin/**/*",
     "./configs/**/*"
   ],
-  "bin": {
-    "svag-lint": "./bin/index.js"
-  },
   "scripts": {
-    "lint": "svag-lint lint",
-    "prettify": "svag-prettier prettify",
-    "types": "svag-ts types",
     "build": "svag-ts build",
-    "watch": "svag-ts watch",
+    "lint": "svag-lint lint",
+    "prepare": "husky",
+    "prettify": "svag-prettier prettify",
     "test": "echo 'Everything is OK'",
-    "prepare": "husky"
+    "types": "svag-ts types",
+    "watch": "svag-ts watch"
   },
   "dependencies": {
     "@eslint/js": "^9.0.0",
@@ -62,5 +61,6 @@
     "svag-prettier": "^0.1.63",
     "svag-ts": "^0.1.68",
     "tsc-alias": "^1.8.10"
-  }
+  },
+  "type": "module"
 }
