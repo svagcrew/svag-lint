@@ -36,8 +36,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       svag-cli-utils:
-        specifier: ^0.1.72
-        version: 0.1.72(@types/node@20.12.7)
+        specifier: ^0.1.73
+        version: 0.1.73(@types/node@20.12.7)
       typescript:
         specifier: ^5.0.0
         version: 5.4.5
@@ -67,14 +67,14 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5
       svag-husky:
-        specifier: ^0.1.54
-        version: 0.1.54(@types/node@20.12.7)
+        specifier: ^0.1.55
+        version: 0.1.55(@types/node@20.12.7)
       svag-prettier:
-        specifier: ^0.1.67
-        version: 0.1.67(@types/node@20.12.7)
+        specifier: ^0.1.68
+        version: 0.1.68(@types/node@20.12.7)
       svag-ts:
-        specifier: ^0.1.72
-        version: 0.1.72(@types/node@20.12.7)
+        specifier: ^0.1.73
+        version: 0.1.73(@types/node@20.12.7)
       tsc-alias:
         specifier: ^1.8.10
         version: 1.8.10
@@ -2590,19 +2590,19 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  svag-cli-utils@0.1.72:
-    resolution: {integrity: sha512-ChL1bQAYEbCmdUViQhpU7JM9tHY1mPbZkB2F+NIQKQ94GmWNXFEu9/Ms/7a2xKc5yxPzChmGyZB2e5+w1jaAcA==}
+  svag-cli-utils@0.1.73:
+    resolution: {integrity: sha512-Bwu/CnD0I//K+OMmcEHPnsrJkxybgGaJjc+LU/j7N1pEtIMYcywOkzj++DCIBsqinzLI/thtojTzcDMXjn5zwA==}
 
-  svag-husky@0.1.54:
-    resolution: {integrity: sha512-eELn0ypuf9YqT+rDlNsjTzlxzM0VDCOt3Jj3U+miCnsB2+oevmZJmEzrBa9Uj80OiWRRRLfCNjyl/eA9fq2Tyw==}
+  svag-husky@0.1.55:
+    resolution: {integrity: sha512-xPTZJytoMzV9BARG2vG/RWsou3Oqn+SSO48lqIFQr8QbTr+005hrM6j2DsWGlJa62cuaKpRJNK+1bEGRbYbO+Q==}
     hasBin: true
 
-  svag-prettier@0.1.67:
-    resolution: {integrity: sha512-F//aVCMCfhMBUg3pnwXNlS9Va56maassFkV96uqZRtqcCXNhQAc4gLKcwv3BcLJQyoEghIQ8VhYdwkCwQsMyeA==}
+  svag-prettier@0.1.68:
+    resolution: {integrity: sha512-tfoYzLmpKDfnGdR4JIfjSP9w9gEtcda2TrtrfBQbmu6FCrHsOxCElN3OZH+FQcPqeOa/cm8ngf6x771gXSlX9g==}
     hasBin: true
 
-  svag-ts@0.1.72:
-    resolution: {integrity: sha512-oWGHu7YU7SI+osHNTFhf/fgADxZA/4RVsnoUNWSYdMGTa7p9mSPfyQacASpyedKBDgIlz/ioMysq4jzjqundZw==}
+  svag-ts@0.1.73:
+    resolution: {integrity: sha512-plJbztX9LjR2b2ksikbZf5PwxYG0znbsTLpDjFpbbgsp9kYvGYV3jeMmj6ExUqMIW0WyUqnoh2KotAsCUkcEvg==}
     hasBin: true
 
   synckit@0.6.2:
@@ -3712,7 +3712,7 @@ snapshots:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.4.5)
       eslint: 9.0.0
-      semver: 7.6.0
+      semver: 7.6.2
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -4287,7 +4287,7 @@ snapshots:
   eslint-compat-utils@0.5.0(eslint@9.0.0):
     dependencies:
       eslint: 9.0.0
-      semver: 7.6.0
+      semver: 7.6.2
 
   eslint-config-canonical@43.0.11(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/eslint@8.56.10)(@types/node@20.12.7)(eslint@9.0.0)(typescript@5.4.5):
     dependencies:
@@ -5238,7 +5238,7 @@ snapshots:
       acorn: 8.11.3
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      semver: 7.6.0
+      semver: 7.6.2
 
   jsonify@0.0.1: {}
 
@@ -5808,7 +5808,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svag-cli-utils@0.1.72(@types/node@20.12.7):
+  svag-cli-utils@0.1.73(@types/node@20.12.7):
     dependencies:
       dedent: 1.5.3
       edit-json-file: 1.8.0
@@ -5830,12 +5830,12 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  svag-husky@0.1.54(@types/node@20.12.7):
+  svag-husky@0.1.55(@types/node@20.12.7):
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
-      svag-cli-utils: 0.1.72(@types/node@20.12.7)
+      svag-cli-utils: 0.1.73(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
@@ -5844,12 +5844,12 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  svag-prettier@0.1.67(@types/node@20.12.7):
+  svag-prettier@0.1.68(@types/node@20.12.7):
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
-      svag-cli-utils: 0.1.72(@types/node@20.12.7)
+      svag-cli-utils: 0.1.73(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
@@ -5858,13 +5858,13 @@ snapshots:
       - '@types/node'
       - babel-plugin-macros
 
-  svag-ts@0.1.72(@types/node@20.12.7):
+  svag-ts@0.1.73(@types/node@20.12.7):
     dependencies:
       dedent: 1.5.3
       lodash: 4.17.21
       prettier: 3.2.5
       rimraf: 5.0.5
-      svag-cli-utils: 0.1.72(@types/node@20.12.7)
+      svag-cli-utils: 0.1.73(@types/node@20.12.7)
       typescript: 5.4.5
       zod: 3.22.4
     transitivePeerDependencies:
